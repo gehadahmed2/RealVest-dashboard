@@ -5,11 +5,11 @@ export default {
         dialogDelete: false,
         headers: [
             { text: "", value: 'photos' },
-            { text: 'Request ID', value: 'id' },
+            { text: 'Investors ID', value: 'investor_id' },
             { text: 'Property name', value: 'property_name' },
-            { text: 'Property type', value: 'property_type' },
             { text: 'Location', value: 'location' },
-            { text: 'Price', value: 'price', sortable: false },
+            { text: 'Listed on', value: 'listed_on' },
+            { text: 'Investments', value: 'investment_at', sortable: false },
             { text: 'Status', value: 'status', sortable: false },
             { text: 'Actions', value: 'actions', sortable: false },
 
@@ -18,19 +18,19 @@ export default {
         searchData: '',
         editedIndex: -1,
         editedItem: {
-            id: '',
+            investor_id: '',
             property_name: '',
-            property_type: '',
             location: '',
-            price: 0,
+            listed_on: '',
+            investment_at: 0,
             status: '',
         },
         defaultItem: {
-            id: '',
+            investor_id: '',
             property_name: '',
-            property_type: '',
             location: '',
-            price: 0,
+            listed_on: '',
+            investment_at: 0,
             status: '',
         },
     }),
@@ -70,7 +70,7 @@ export default {
         getListing() {
             try {
                 console.log(this.$v)
-                axios.get('http://34.125.158.199/admin/listings', {
+                axios.get('https://web.marsworkers.com/admin/listings', {
                     headers: {
                         Authorization: `Bearer ${localStorage.user_token}`
                     }
@@ -95,7 +95,7 @@ export default {
             this.$router.push('/createList')
         },
         getColor(status) {
-            if (status == 'Acitve') return 'green'
+            if (status == 'ACTIVE') return 'green'
             else if (status == 'DRAFT') return 'orange'
             else if (status == 'SOLD') return 'blue'
             else if (status == 'EXPIRED') return 'Grey'
@@ -116,7 +116,7 @@ export default {
             const id = this.listing.splice(this.editedIndex, 1)
             console.log(id[0].id, "deleteddiddd")
             try {
-                await axios.get(`http://34.125.158.199/admin/listings/${id[0].id}/delete`, {
+                await axios.get(`https://web.marsworkers.com/admin/listings/${id[0].id}/delete`, {
                     headers: {
                         Authorization: `Bearer ${localStorage.user_token}`
                     }

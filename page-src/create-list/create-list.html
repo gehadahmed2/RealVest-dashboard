@@ -9,24 +9,24 @@
             <p style="margin-bottom: 8px; color: #181448;">Property type</p>
             <v-select :items="cities" label="Select type" v-model="Property_type" solo item-text="name"
                 item-value="code"></v-select>
-            <p style="margin-bottom: 8px;color: red; font-size: 12px;" v-if="flag || Property_type == ''">The property  type is required.</p>
+            <p style="margin-bottom: 8px;color: red; font-size: 12px;" v-if="flag && Property_type == undefined">The property  type is required.</p>
             <p style="margin-bottom: 8px; color: #181448;">Location</p>
             <v-select :items="properties" label="Select location" solo v-model="location" item-text="name"
                 item-value="id"></v-select>
-            <p style="margin-bottom: 8px; color: red; font-size: 12px;" v-if="flag">The location is required.</p>
+            <p style="margin-bottom: 8px; color: red; font-size: 12px;" v-if="flag && location == null">The location is required.</p>
 
             <p style="margin-bottom: 8px; color: #181448;">Location on map</p>
             <v-text-field v-model="location_map" solo label="location link or coordinates"></v-text-field>
-            <p style="margin-bottom: 8px; color: red; font-size: 12px;" v-if="flag">The property description is
+            <p style="margin-bottom: 8px; color: red; font-size: 12px;" v-if="flag && location_map == null">The property description is
                 required.</p>
 
             <p style="margin-bottom: 8px; color: #181448;">Unit price</p>
             <v-text-field v-model="price" solo label="e.g. 3,000,000"></v-text-field>
-            <p style="margin-bottom: 8px; color: red; font-size: 12px;" v-if="flag">The Unit price must be a number</p>
+            <p style="margin-bottom: 8px; color: red; font-size: 12px;" v-if="flag && price == null">The Unit price must be a number</p>
 
             <p style="margin-bottom: 8px; color: #181448;">Property description</p>
             <textarea placeholder="Tell us about the property" class="area" v-model="Property_desc"></textarea>
-            <p style="margin-bottom: 8px; color: red; font-size: 12px;" v-if="flag">The property description is
+            <p style="margin-bottom: 8px; color: red; font-size: 12px;" v-if="flag && Property_desc == null">The property description is
                 required.</p>
 
         </div>
@@ -37,34 +37,34 @@
             <p style="margin-bottom: 8px; color: #181448;">Number of bedrooms</p>
             <v-select :items="bedrooms" label="Select number" v-model="beds" solo item-text="number" item-value="id">
             </v-select>
-            <p style="margin-bottom: 8px; color: red; font-size: 12px;" v-if="flag">The beds must be a number.</p>
+            <p style="margin-bottom: 8px; color: red; font-size: 12px;" v-if="flag && beds == null">The beds must be a number.</p>
 
             <p style="margin-bottom: 8px; color: #181448;">Number of bathrooms</p>
             <v-select :items="bathrooms" label="Select number" solo v-model="bath" item-text="number" item-value="id">
             </v-select>
-            <p style="margin-bottom: 8px; color: red; font-size: 12px;" v-if="flag">The bathrooms must be a number.</p>
+            <p style="margin-bottom: 8px; color: red; font-size: 12px;" v-if="flag && bath == null">The bathrooms must be a number.</p>
 
             <p style="margin-bottom: 8px; color: #181448;">Floor number</p>
             <v-select :items="floors" label="Select floor number" solo v-model="floor_number" item-text="number"
                 item-value="id"></v-select>
-            <p style="margin-bottom: 8px; color: red; font-size: 12px;" v-if="flag">The floor must be a number.</p>
+            <p style="margin-bottom: 8px; color: red; font-size: 12px;" v-if="flag && floor_number == null">The floor must be a number.</p>
 
             <p style="margin-bottom: 8px; color: #181448;">Area in meter square</p>
             <v-text-field solo label="e.g. 130" v-model="area"></v-text-field>
-            <p style="margin-bottom: 8px; color: red; font-size: 12px;" v-if="flag">The area must be a number.</p>
+            <p style="margin-bottom: 8px; color: red; font-size: 12px;" v-if="flag && area == null">The area must be a number.</p>
 
             <p style="margin-bottom: 8px; color: #181448;">Land area</p>
             <v-text-field v-model="land" solo label="e.g. 130"></v-text-field>
-            <p style="margin-bottom: 8px; color: red; font-size: 12px;" v-if="flag">The land must be a number.</p>
+            <p style="margin-bottom: 8px; color: red; font-size: 12px;" v-if="flag && land == null">The land must be a number.</p>
 
             <p style="margin-bottom: 8px; color: #181448;">Built up area</p>
             <v-text-field v-model="built_up_area" solo label="e.g. 130"></v-text-field>
-            <p style="margin-bottom: 8px; color: red; font-size: 12px;" v-if="flag">The built up area must be a number.</p>
+            <p style="margin-bottom: 8px; color: red; font-size: 12px;" v-if="flag && built_up_area == null">The built up area must be a number.</p>
 
             <p style="margin-bottom: 8px; color: #181448;">Finishing type</p>
             <v-select :items="finishing_types" label="Select type" solo v-model="finishing" item-text="type"
                 item-value="id"></v-select>
-            <p style="margin-bottom: 8px; color: red; font-size: 12px;" v-if="flag">The finishing type is required.</p>
+            <p style="margin-bottom: 8px; color: red; font-size: 12px;" v-if="flag && finishing == undefined">The finishing type is required.</p>
         </div>
 
         <div class="thirdSection">
@@ -75,6 +75,7 @@
                     </v-checkbox>
                 </v-flex>
             </v-layout>
+            <p style="margin-bottom: 8px; color: red; font-size: 12px;" v-if="flag">The amenities is required.</p>
         </div>
 
         <div class="thirdSection">
@@ -88,22 +89,14 @@
                     </v-chip>
                 </template>
             </v-file-input>
-            <!-- {{files[0].name}} -->
-
-
-
-
-            <!-- <img id="imgFileUpload" alt="Select File" title="Select File" src="../../assets/images/media.png"
-                style="cursor: pointer" />
-            <br />
-            <span id="spnFilePath"></span>
-            <input type="file" id="FileUpload1" style="display: none" multiple /> -->
-            <!-- <input type="image "src="../../assets/images/media.png" v-model="files" @change="addFiles" />  -->
+            
             <row sm="4" v-for="(file,f) in files" :key="f">
                 <!-- {{file.name}} -->
                 <img :ref="'file'" src="//placehold.it/400/99cc77" class="img-fluid" :title="'file' + f"
                     style="width: 50px;" />
             </row>
+            <p style="margin-bottom: 8px; color: red; font-size: 12px;" v-if="flag">The image ids field is required</p>
+
         </div>
 
 
@@ -122,10 +115,12 @@
                     </span> -->
                 </template>
             </v-file-input>
+            <p style="margin-bottom: 8px; color: red; font-size: 12px;" v-if="flag && newFiles == 0">The attachment field is required</p>
         </div>
         <div style="text-align: end; margin-bottom: 20px;">
             <button @click="createListing">CREATE LISTING</button>
 
         </div>
+
     </div>
 </div>

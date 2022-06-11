@@ -3,8 +3,7 @@
         .image {
             img {
                 width: 100%;
-                height: 646px;
-
+                height: 725px;
             }
         }
         @media(max-width:768px) {
@@ -50,6 +49,34 @@
         .errorMsg {
             color: red;
             font-size: 13px;
+        }
+
+        .btns {
+            display: flex;
+            justify-content: space-between;
+            margin: 8px 0px;
+
+            .checkBox {
+                font-size: 16px;
+                color: #003097;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+
+                input[type="checkbox"] {
+                    width: 18px;
+                    height: 18px;
+                    margin-right: 4px;
+                    cursor: pointer;
+                }
+            }
+
+            .forget {
+                color: #2C5282;
+                font-size: 18px;
+                font-weight: 400;
+                cursor: pointer;
+            }
         }
 
         button {

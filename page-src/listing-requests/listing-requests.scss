@@ -28,6 +28,8 @@
         padding: 8px 0px;
     }
 
+    
+
     ::v-deep thead.v-data-table-header {
         background-color: #F9FAFF;
         color: #181448;
@@ -92,5 +94,22 @@
 
     ::v-deep .v-input.v-input--hide-details.v-input--is-label-active.v-input--is-dirty.theme--light.v-text-field.v-text-field--is-booted.v-select {
         margin: 13px 0 13px 5px !important;
+    }
+
+    ::v-deep span.v-chip.theme--light.v-size--default.green {
+        color: green !important;
+        background-color: unset !important;
+    }
+    ::v-deep span.v-chip.theme--light.v-size--default.orange {
+        background: unset !important;
+        color: orange;
+    }
+    ::v-deep span.v-chip.theme--light.v-size--default.blue{
+        color: blue !important;
+        background-color: unset !important;
+    }
+    ::v-deep span.v-chip.theme--light.v-size--default.Grey {
+        color: Grey !important;
+        background-color: unset !important;
     }
 }

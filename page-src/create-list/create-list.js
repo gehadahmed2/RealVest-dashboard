@@ -64,7 +64,7 @@ export default {
 
 
       try {
-        axios.post('http://34.125.158.199/admin/listings/create-listing', formData, {
+        axios.post('https://web.marsworkers.com/admin/listings/create-listing', formData, {
           headers: {
             Authorization: `Bearer ${localStorage.user_token}`,
             'Content-Type': 'multipart/form-data'
@@ -110,7 +110,7 @@ export default {
 
   created() {
     try {
-      axios.get('http://34.125.158.199/listing/get-create-list', {
+      axios.get('https://web.marsworkers.com/listing/get-create-list', {
         headers: {
           Authorization: `Bearer ${localStorage.user_token}`
         }

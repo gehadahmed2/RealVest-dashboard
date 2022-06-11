@@ -1,25 +1,37 @@
 <div class="login">
-    <div class="row">
-        <div class="col-6 img">
-            <div class="image"><img src="../../assets/images/loginImage.png" /> </div>
-        </div>
+  <div style="display: flex; grid-gap: 20%;">
+    <div class="image"><img src="../../assets/images/loginImage.png" /> </div>
 
-        <div class="col-12 col-sm-6">
-            <div class="login__form">
-                <div>
-                    <p class="login__firstTitle">Welcome back,</p>
-                    <p class="login__secTitle">Login as an admin user</p>
+    <div class="login__form">
+      <div>
+        <p class="login__firstTitle">Welcome back,</p>
+        <p class="login__secTitle">Login as an admin user</p>
 
-                    <div class="input-label mand">Email</div>
-                    <v-text-field outlined single-line class="migrate" label="enter email" v-model="email" />
-                    <p class="errorMsg" >{{emailError}}</p>
-                    <!-- {{loginData}} -->
-                    <div class="input-label mand">Password</div>
-                    <v-text-field type="password" outlined single-line class="migrate" label="enter Password" v-model="password" />
-                    <p class="errorMsg" >{{passError}}</p>
-                    <button @click="logIn">Login now</button>
-                </div>
-            </div>
+        <div class="input-label mand">Email</div>
+        <v-text-field outlined single-line class="migrate" label="enter email" v-model="email" />
+        <p class="errorMsg">{{emailError}}</p>
+        <!-- {{loginData}} -->
+        <div class="input-label mand">Password</div>
+        <v-text-field type="password" outlined single-line class="migrate" label="enter Password" v-model="password" />
+        <p class="errorMsg">{{passError}}</p>
+
+        <div class="btns">
+          <div class="checkBox">
+            <input type="checkbox" />
+            <span>Remember me</span>
+          </div>
+          <div class="forget">
+            Forgot password?
+          </div>
         </div>
+        <button @click="logIn">Login now</button>
+        <div style="position: relative; top: 37%;">
+          <p style="color: #616161">
+            Don’t have an account?
+            <a href="#" style="color: #8b564a; text-decoration: none;">Create admin account</a>
+          </p>
+        </div>
+      </div>
     </div>
+  </div>
 </div>

@@ -104,19 +104,19 @@
         padding: 0px 7px
     }
 
-    ::v-deep .theme--light.v-chip:not(.v-chip--active) {
+    ::v-deep span.v-chip.theme--light.v-size--default.green {
         color: green !important;
         background-color: unset !important;
     }
-    ::v-deep span.v-chip.theme--dark.v-size--default.orange {
-        color: orange !important;
-        background-color: unset !important;
+    ::v-deep span.v-chip.theme--light.v-size--default.orange {
+        background: unset !important;
+        color: orange;
     }
-    ::v-deep span.v-chip.theme--dark.v-size--default.blue {
+    ::v-deep span.v-chip.theme--light.v-size--default.blue{
         color: blue !important;
         background-color: unset !important;
     }
-    ::v-deep span.v-chip.theme--dark.v-size--default.Grey {
+    ::v-deep span.v-chip.theme--light.v-size--default.Grey {
         color: Grey !important;
         background-color: unset !important;
     }

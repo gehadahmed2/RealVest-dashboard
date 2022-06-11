@@ -67,7 +67,7 @@ export default {
         getInvestors() {
             try {
                 console.log(this.$v)
-                axios.get('http://34.125.158.199/admin/investors', {
+                axios.get('https://web.marsworkers.com/admin/investors', {
                     headers: {
                         Authorization: `Bearer ${localStorage.user_token}`
                     }
@@ -100,7 +100,7 @@ export default {
             const id = this.investors.splice(this.editedIndex, 1)
             console.log(id[0].id,"deleteddiddd")
             try {
-                await axios.get(`http://34.125.158.199/admin/investors/${id[0].id}/delete`, {
+                await axios.get(`https://web.marsworkers.com/investors/${id[0].id}/delete`, {
                     headers: {
                         Authorization: `Bearer ${localStorage.user_token}`
                     }
