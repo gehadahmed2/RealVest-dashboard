@@ -18,7 +18,7 @@
         </div>
     </div>
     <v-data-table :headers="headers" :items-per-page="6" :items=" findData" sort-by="calories" class="elevation-1"
-        :footer-props="{'items-per-page-text':'Show'}">
+    :hide-default-footer="true">
         <template v-slot:item.image="{ item }">
             <div class="p-2">
                 <img :src="item.image" :alt="item.name" />
@@ -100,5 +100,8 @@
         </template>
 
     </v-data-table>
-
+    <div class="text-center" style="margin:30px 0px">
+        <v-pagination v-model="pagination.current" :length="pagination.total" @input="onPageChange" :total-visible="5"
+          circle></v-pagination>
+      </div>
 </div>

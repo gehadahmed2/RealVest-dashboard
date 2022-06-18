@@ -66,7 +66,9 @@
         padding: 8px 0px;
         width: 55px;
     }
-
+    ::v-deep button.v-pagination__item.v-pagination__item--active.primary{
+        background-color: #8B564A !important;
+    }
     ::v-deep thead.v-data-table-header {
         background-color: #F9FAFF;
         color: #181448;

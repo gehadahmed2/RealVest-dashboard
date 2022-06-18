@@ -33,6 +33,10 @@ export default {
             investment_at: 0,
             status: '',
         },
+        pagination: {
+            current: 1,
+            total: 0
+          },
     }),
 
     computed: {
@@ -67,10 +71,13 @@ export default {
 
 
     methods: {
+        onPageChange() {
+            this.getListing();
+          },
         getListing() {
             try {
                 console.log(this.$v)
-                axios.get('https://web.marsworkers.com/admin/listings', {
+                axios.get('https://web.marsworkers.com/admin/listings?page=' + this.pagination.current,{
                     headers: {
                         Authorization: `Bearer ${localStorage.user_token}`
                     }
@@ -78,11 +85,8 @@ export default {
                 }).then((response) => {
                     this.listing = response.data.data
                     console.log(response, "listing")
-                    const status = this.listing.map(x => x.status)
-                    console.log(status, "stuss")
-                    if (status == 'Active') {
-                        status[0].style.color = "green"
-                    }
+                    this.pagination.current = response.data.current_page;
+                    this.pagination.total = response.data.last_page;
 
                 })
 

@@ -59,7 +59,9 @@
      display: none !important;
         // height: 60px !important;
     }
-
+    ::v-deep button.v-pagination__item.v-pagination__item--active.primary{
+        background-color: #8B564A !important;
+    }
     .v-input__slot {
         border-radius: 12px !important;
         border: 1px solid #F9FAFF;

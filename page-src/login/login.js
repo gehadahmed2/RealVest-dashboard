@@ -31,6 +31,8 @@ export default {
 
           if (response) {
             localStorage.setItem('user_token', this.loginData.access_token)
+            localStorage.user_name = this.loginData.user.name
+            localStorage.user_role = this.loginData.user.role_name
           }
 
           if (localStorage.getItem('user_token') && this.email != null && this.password != null) {
@@ -43,8 +45,7 @@ export default {
           console.log(this.emailError, this.passError, "errorss")
           // localStorage.user_token =  this.loginData.access_token
 
-          localStorage.user_name = this.loginData.user.name
-          localStorage.user_role = this.loginData.user.role_name
+
         })
 
 

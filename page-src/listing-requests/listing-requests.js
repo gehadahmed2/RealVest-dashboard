@@ -32,6 +32,10 @@ export default {
             price: 0,
             status: '',
         },
+        pagination: {
+            current: 1,
+            total: 0
+          },
     }),
 
     computed: {
@@ -65,10 +69,12 @@ export default {
 
 
     methods: {
+        onPageChange() {
+            this.getRequests();
+          },
         getRequests() {
             try {
-                console.log(this.$v)
-                axios.get('https://web.marsworkers.com/admin/requests', {
+                axios.get('https://web.marsworkers.com/admin/requests?page=' + this.pagination.current, {
                     headers: {
                         Authorization: `Bearer ${localStorage.user_token}`
                     }
@@ -76,6 +82,8 @@ export default {
                 }).then((response) => {
                     this.requests = response.data.data
                     console.log(response, "requestss")
+                    this.pagination.current = response.data.current_page;
+                    this.pagination.total = response.data.last_page;
 
                 })
 

@@ -47,7 +47,11 @@ export default {
         editRole: {},
         emailExist: '',
         nameExist: '',
-        persmisionExist: ''
+        persmisionExist: '',
+        pagination: {
+            current: 1,
+            total: 0
+          }
     }),
 
     computed: {
@@ -101,15 +105,20 @@ export default {
 
 
     methods: {
+        onPageChange() {
+            this.getListing();
+          },
         getListing() {
             try {
-                axios.get('http://34.125.158.199/admin/users', {
+                axios.get('https://web.marsworkers.com/admin/users', {
                     headers: {
                         Authorization: `Bearer ${localStorage.user_token}`
                     }
 
                 }).then((response) => {
                     this.users = response.data.data
+                    this.pagination.current = response.data.current_page;
+                    this.pagination.total = response.data.last_page;
                     console.log(response, "users")
 
                 })

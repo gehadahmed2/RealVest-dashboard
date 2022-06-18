@@ -20,6 +20,8 @@
         padding-left: 37px;
     }
 
+   
+
     ::placeholder {
         /* Chrome, Firefox, Opera, Safari 10.1+ */
         color: #7E95C6;
@@ -36,7 +38,9 @@
     ::v-deep .theme--light.v-data-table>.v-data-table__wrapper>table>tbody>tr:hover:not(.v-data-table__expanded__content):not(.v-data-table__empty-wrapper) {
         background-color: #F9FAFF;
     }
-
+    ::v-deep button.v-pagination__item.v-pagination__item--active.primary{
+        background-color: #8B564A !important;
+    }
     .v-input__slot {
         border-radius: 12px !important;
         border: 1px solid #F9FAFF;

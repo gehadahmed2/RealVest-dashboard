@@ -112,4 +112,7 @@
         color: Grey !important;
         background-color: unset !important;
     }
+    ::v-deep button.v-pagination__item.v-pagination__item--active.primary{
+        background-color: #8B564A !important;
+    }
 }

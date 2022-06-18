@@ -33,6 +33,10 @@ export default {
             request_on: 0,
             shares: 0,
         },
+        pagination: {
+            current: 1,
+            total: 0
+          },
     }),
 
     computed: {
@@ -67,10 +71,13 @@ export default {
         toggleTab(item){
             this.toggle = !this.toggle
         },
+        onPageChange() {
+            this.getInvestment();
+          },
         getInvestment() {
             console.log('hereeee')
             try {
-                axios.get('http://34.125.158.199/admin/investment-requests', {
+                axios.get('https://web.marsworkers.com/admin/investment-requests?page=' + this.pagination.current,{
                     headers: {
                         Authorization: `Bearer ${localStorage.user_token}`
                     }
@@ -78,6 +85,8 @@ export default {
                 }).then((response) => {
                     this.investments= response.data.data
                     console.log(response, "investments")
+                    this.pagination.current = response.data.current_page;
+                    this.pagination.total = response.data.last_page;
 
                 })
 
