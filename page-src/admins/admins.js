@@ -110,7 +110,7 @@ export default {
           },
         getListing() {
             try {
-                axios.get('https://web.marsworkers.com/admin/users', {
+                axios.get('https://web.marsworkers.com/admin/users?page=' + this.pagination.current, {
                     headers: {
                         Authorization: `Bearer ${localStorage.user_token}`
                     }
