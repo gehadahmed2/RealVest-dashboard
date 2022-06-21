@@ -14,6 +14,7 @@
         <div class="input-label mand">Password</div>
         <v-text-field type="password" outlined single-line class="migrate" label="enter Password" v-model="password" />
         <p class="errorMsg">{{passError}}</p>
+        <p class="errorMsg" v-if="invalidEmail">{{invalidEmail}}</p>
 
         <div class="btns">
           <div class="checkBox">

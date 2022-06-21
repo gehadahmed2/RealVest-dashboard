@@ -13,7 +13,8 @@ export default {
       loginData: null,
       emailError: '',
       passError: '',
-      loginResponse: null
+      loginResponse: null,
+      invalidEmail:null
     }
   },
 
@@ -28,6 +29,8 @@ export default {
           this.loginData = response.data
           this.loginResponse = response
           console.log(response, "checkksss")
+          this.invalidEmail = this.loginData.error
+          console.log(this.invalidEmail, "checkksss")
 
           if (response) {
             localStorage.setItem('user_token', this.loginData.access_token)
@@ -35,14 +38,14 @@ export default {
             localStorage.user_role = this.loginData.user.role_name
           }
 
-          if (localStorage.getItem('user_token') && this.email != null && this.password != null) {
+          if (localStorage.getItem('user_token') != undefined && this.email != null && this.password != null && !this.invalidEmail) {
+            console.log('heree')
             this.$router.push('/investors')
           }
 
           this.emailError = this.loginData?.email[0],
             this.passError = this.loginData?.password[0]
-
-          console.log(this.emailError, this.passError, "errorss")
+          console.log(this.emailError, this.passError,this.invalidEmail, "errorss")
           // localStorage.user_token =  this.loginData.access_token
 
 
@@ -58,7 +61,7 @@ export default {
   },
 
   mounted() {
-    if (localStorage.getItem('user_token')) {
+    if (localStorage.getItem('user_token') != undefined && this.email != null && this.password != null && !this.invalidEmail) {
       this.$router.push('/investors')
     }
   }

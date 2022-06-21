@@ -98,7 +98,11 @@ export default {
     getInvestors() {
       try {
         console.log(this.$v)
-        axios.get('https://web.marsworkers.com/admin/investors?page=' + this.pagination.current, {
+        axios.get('https://web.marsworkers.com/admin/investors', {
+          params:{
+            'page': this.pagination.current,
+            'filter': this.searchData 
+          },
           headers: {
             Authorization: `Bearer ${localStorage.user_token}`
           }
