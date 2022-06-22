@@ -53,5 +53,10 @@
         color: #fff;
         background: #FF772A;
         border-radius: 12px;
+        &.disabled-button {
+            background:rgba(210, 210, 210, 1);
+            cursor: not-allowed;
+            border: 1px solid rgba(210, 210, 210, 1);
+        }
     }
 }

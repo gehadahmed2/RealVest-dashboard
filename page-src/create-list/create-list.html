@@ -74,8 +74,8 @@
                     <v-checkbox light :label="item.name" :value="item.code"  input-value="anim">
                     </v-checkbox>
                 </v-flex>
+                <p style="margin-bottom: 8px; color: red; font-size: 12px;" v-if="flag">The amenities is required.</p>
             </v-layout>
-            <p style="margin-bottom: 8px; color: red; font-size: 12px;" v-if="flag">The amenities is required.</p>
         </div>
 
         <div class="thirdSection">
@@ -95,7 +95,7 @@
                 <img :ref="'file'" src="//placehold.it/400/99cc77" class="img-fluid" :title="'file' + f"
                     style="width: 50px;" />
             </row>
-            <p style="margin-bottom: 8px; color: red; font-size: 12px;" v-if="flag">The image ids field is required</p>
+            <p style="margin-bottom: 8px; color: red; font-size: 12px;" v-if="flag && files == ''">The image ids field is required</p>
 
         </div>
 
@@ -118,7 +118,7 @@
             <p style="margin-bottom: 8px; color: red; font-size: 12px;" v-if="flag && newFiles == 0">The attachment field is required</p>
         </div>
         <div style="text-align: end; margin-bottom: 20px;">
-            <button @click="createListing">CREATE LISTING</button>
+            <button @click="createListing" :disabled="disableFlag" :class="{ 'disabled-button': disableFlag }">CREATE LISTING</button>
 
         </div>
 
