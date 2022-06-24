@@ -67,11 +67,11 @@ export default {
     formTitle() {
       return this.editedIndex === -1 ? 'New Item' : 'Edit Item'
     },
-    findData() {
-      return this.investors.filter(x => {
-        return x.name.toLowerCase().includes(this.searchData.toLowerCase())
-      })
-    }
+    // findData() {
+    //   return this.investors.filter(x => {
+    //     return x.name.toLowerCase().includes(this.searchData.toLowerCase())
+    //   })
+    // }
   },
 
   watch: {

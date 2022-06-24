@@ -1,9 +1,9 @@
 <div class="investors container">
   <img src="../../assets/images/search.png" alt="search"
     style="position: absolute; padding: 12px 4px 0px 16px; width: unset;">
-  <input v-model="searchData" type="text" placeholder="Investor name" class="search" />
+  <input v-model="searchData" type="text" placeholder="Investor name or id" class="search" @input="getInvestors"/>
 
-  <v-data-table :headers="headers" :items-per-page="8" :items="findData" class="elevation-1" :hide-default-footer="true">
+  <v-data-table :headers="headers" :items-per-page="8" :items="investors" class="elevation-1" :hide-default-footer="true">
 
     <template v-slot:item.image="{ item }">
       <div class="p-2">

@@ -43,11 +43,11 @@ export default {
         formTitle() {
             return this.editedIndex === -1 ? 'New Item' : 'Edit Item'
         },
-        findData(){
-            return this.investments.filter(x =>{
-                return x.investor_name.toLowerCase().includes(this.searchData.toLowerCase())
-            })
-        }
+        // findData(){
+        //     return this.investments.filter(x =>{
+        //         return x.investor_name.toLowerCase().includes(this.searchData.toLowerCase())
+        //     })
+        // }
     },
 
     watch: {
@@ -77,7 +77,11 @@ export default {
         getInvestment() {
             console.log('hereeee')
             try {
-                axios.get('https://web.marsworkers.com/admin/investment-requests?page=' + this.pagination.current,{
+                axios.get('https://web.marsworkers.com/admin/investment-requests?' , {
+                    params:{
+                      'page': this.pagination.current,
+                      'filter': this.searchData 
+                    },
                     headers: {
                         Authorization: `Bearer ${localStorage.user_token}`
                     }

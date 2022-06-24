@@ -43,11 +43,11 @@ export default {
         formTitle() {
             return this.editedIndex === -1 ? 'New Item' : 'Edit Item'
         },
-        findListing() {
-            return this.listing.filter(x => {
-                return x.property_name.toLowerCase().includes(this.searchData.toLowerCase())
-            })
-        }
+        // findListing() {
+        //     return this.listing.filter(x => {
+        //         return x.property_name.toLowerCase().includes(this.searchData.toLowerCase())
+        //     })
+        // }
     },
 
     watch: {
@@ -77,7 +77,11 @@ export default {
         getListing() {
             try {
                 console.log(this.$v)
-                axios.get('https://web.marsworkers.com/admin/listings?page=' + this.pagination.current,{
+                axios.get('https://web.marsworkers.com/admin/listings?', {
+                    params:{
+                      'page': this.pagination.current,
+                      'filter': this.searchData 
+                    },
                     headers: {
                         Authorization: `Bearer ${localStorage.user_token}`
                     }

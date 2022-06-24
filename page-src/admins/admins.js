@@ -61,11 +61,11 @@ export default {
         changeBtnsTitles() {
             this.formTitle === 'New Item' ? 'Create' : 'Save Changes'
         },
-        findListing() {
-            return this.users.filter(x => {
-                return x.name.toLowerCase().includes(this.searchData.toLowerCase())
-            })
-        }
+        // findListing() {
+        //     return this.users.filter(x => {
+        //         return x.name.toLowerCase().includes(this.searchData.toLowerCase())
+        //     })
+        // }
     },
 
     watch: {
@@ -110,7 +110,11 @@ export default {
           },
         getListing() {
             try {
-                axios.get('https://web.marsworkers.com/admin/users?page=' + this.pagination.current, {
+                axios.get('https://web.marsworkers.com/admin/users?', {
+                    params:{
+                      'page': this.pagination.current,
+                      'filter': this.searchData 
+                    },
                     headers: {
                         Authorization: `Bearer ${localStorage.user_token}`
                     }
