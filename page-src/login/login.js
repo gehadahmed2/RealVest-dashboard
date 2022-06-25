@@ -33,9 +33,9 @@ export default {
           console.log(this.invalidEmail, "checkksss")
 
           if (response) {
-            localStorage.setItem('user_token', this.loginData.access_token)
-            localStorage.user_name = this.loginData.user.name
-            localStorage.user_role = this.loginData.user.role_name
+            localStorage.setItem('user_token', this.loginData?.access_token)
+            localStorage.user_name = this.loginData?.user?.name
+            localStorage.user_role = this.loginData?.user?.role_name
           }
 
           if (localStorage.getItem('user_token') != undefined && this.email != null && this.password != null && !this.invalidEmail) {
