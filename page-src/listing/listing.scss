@@ -120,8 +120,28 @@
         color: Grey !important;
         background-color: unset !important;
     }
-    ::v-deep button.v-pagination__item.v-pagination__item--active.primary{
+    ::v-deep .theme--light.v-pagination .v-pagination__item {
+        border-radius: 6px;
+        width: 40px;
+        height: 40px;
+        border: 1px solid #8B564A;
+        color: #8B564A;
+    }
+
+    ::v-deep .theme--light.v-pagination .v-pagination__navigation {
+        border-radius: 6px;
+        width: 40px;
+        height: 40px;
+
+    }
+
+    ::v-deep button.v-pagination__item.v-pagination__item--active.primary {
         background-color: #8B564A !important;
+        border-radius: 6px;
+        width: 40px;
+        height: 40px;
+        color: #fff;
+        border: unset;
     }
 
     ::v-deep .theme--light.v-text-field>.v-input__control>.v-input__slot:before {
